@@ -1,24 +1,80 @@
 <?php
-$articles = [
+$taches = [
     [
         'id' => 1,
-        'titre' => 'Comment structurer ses composants UI avec Atomic Design ?',
-        'contenu' => 'Découvrez les concepts fondamentaux de la méthode Atomic Design...',
-        'image' => 'article-example.png',
-        'date_creation' => '2026-02-14',
-        'categorie_libelle' => 'Développement',
-        'categorie_couleur' => 'bleu'
+        'titre' => 'Créer la structure HTML',
+        'description' => 'Réaliser la structure HTML de la page d\'accueil.',
+        'date_limite' => '2026-11-15',
+        'priorite' => 'Haute',
+        'terminee' => true
     ],
     [
         'id' => 2,
-        'titre' => 'Maîtriser les micro-interactions UX',
-        'contenu' => 'Une interface belle n\'est pas suffisante...',
-        'image' => 'article-example.png',
-        'date_creation' => '2026-02-10',
-        'categorie_libelle' => 'Design UI/UX',
-        'categorie_couleur' => 'rose'
+        'titre' => 'Intégrer les styles CSS',
+        'description' => 'Appliquer les couleurs et les espacements.',
+        'date_limite' => '2026-11-17',
+        'priorite' => 'Moyenne',
+        'terminee' => false
+    ],
+    [
+        'id' => 3,
+        'titre' => 'Créer les fonctions PHP',
+        'description' => 'Organiser les traitements de la Todo List.',
+        'date_limite' => '2026-11-10',
+        'priorite' => 'Haute',
+        'terminee' => true
+    ],
+    [
+        'id' => 4,
+        'titre' => 'Tester l\'application',
+        'description' => 'Vérifier le bon fonctionnement et corriger les erreurs.',
+        'date_limite' => '2026-11-20',
+        'priorite' => 'Basse',
+        'terminee' => false
+    ],
+    [
+        'id' => 5,
+        'titre' => 'Préparer la collection des tâches',
+        'description' => 'Créer un tableau multidimensionnel avec 8 tâches.',
+        'date_limite' => '2026-11-12',
+        'priorite' => 'Moyenne',
+        'terminee' => true
+    ],
+    [
+        'id' => 6,
+        'titre' => 'Afficher les statistiques',
+        'description' => 'Calculer et afficher le total, les tâches terminées et non terminées.',
+        'date_limite' => '2026-11-21',
+        'priorite' => 'Haute',
+        'terminee' => false
+    ],
+    [
+        'id' => 7,
+        'titre' => 'Organiser les fichiers du projet',
+        'description' => 'Créer un dossier pour le projet et y placer les fichiers (index.php, style.css).',
+        'date_limite' => '2026-11-22',
+        'priorite' => 'Basse',
+        'terminee' => false
+    ],
+    [
+        'id' => 8,
+        'titre' => 'Vérifier l\'affichage des tâches',
+        'description' => 'Tester tous les cas (terminée et non terminée) et corriger le style.',
+        'date_limite' => '2026-11-24',
+        'priorite' => 'Moyenne',
+        'terminee' => false
     ]
 ];
 
-echo "Article 1 : " . $articles[0]['titre'] . " (" . $articles[0]['categorie_libelle'] . ")<br>";
-echo "Article 2 : " . $articles[1]['titre'] . " (" . $articles[1]['categorie_libelle'] . ")";
+$totalTaches = count($taches);
+$tachesTerminees = 0;
+
+foreach ($taches as $tache) {
+    if ($tache['terminee'] === true) {
+        $tachesTerminees++;
+    }
+}
+$tachesRestantes = $totalTaches - $tachesTerminees;
+
+require "index-template.php";
+?>
